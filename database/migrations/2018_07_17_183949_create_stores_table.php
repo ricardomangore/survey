@@ -15,10 +15,8 @@ class CreateStoresTable extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('id_user');
             $table->string('name');
             $table->timestamps();
-            $table->foreign('id_user')->references('id')->on('users');
         });
     }
 

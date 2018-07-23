@@ -10,3 +10,5 @@ class Questionnarie extends Model
     	return $this->hasMany('App\Question', 'id', 'id_question');
     }
 }
+
+
