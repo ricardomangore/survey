@@ -16,27 +16,62 @@ class QuestionsTableSeeder extends Seeder
     	$faker = Faker\Factory::create();
         DB::table('questions')->insert([
         	[
-        		'question' => 'pregunta 1',
+        		'question' => 'Cual es su nombre completo',
+        		'format' => '{
+        			"type" : "text"
+        		}',
         	    'created_at' => $faker->dateTime(),
         	    'updated_at' => $faker->dateTime()
         	],
         	[
-        		'question' => 'pregunta 2',
+        		'question' => 'Que tipo de tramite realizo',
+        		'format' => '{
+        			"type" : "select",
+        			"options" : ["option 1", "option 2", "option 3"]
+        		}',
         	    'created_at' => $faker->dateTime(),
         	    'updated_at' => $faker->dateTime()
         	],
         	[
-        		'question' => 'pregunta 3',
+        		'question' => 'Que tan satisfecho está con el servicio que le brindo el ejecutivo que le atendió',
+        		'format' => '{
+        			"type" : "select",
+        			"options" : ["option 1", "option 2", "option 3"]
+        		}',
         	    'created_at' => $faker->dateTime(),
         	    'updated_at' => $faker->dateTime()
         	],
         	[
-        		'question' => 'pregunta 4',
+        		'question' => 'Cuanto tiempo espero a que le atendiera un ejecutivo',
+        		'format' => '{
+        			"type" : "select",
+        			"options" : ["option 1", "option 2", "option 3"]
+        		}',
         	    'created_at' => $faker->dateTime(),
         	    'updated_at' => $faker->dateTime()
         	],
         	[
-        		'question' => 'pregunta 5',
+        		'question' => 'Que tan probable es que recomiende AT&T a un amigo o familiar',
+        		'format' => '{
+        			"type" : "select",
+        			"options" : ["option 1", "option 2", "option 3"]
+        		}',
+        	    'created_at' => $faker->dateTime(),
+        	    'updated_at' => $faker->dateTime()
+        	],
+        	[
+        		'question' => 'Podria ayudarnos con sus comentarios para entender mejor su experiencia de atención / compra',
+        		'format' => '{
+        			"type" : "longtext"
+        		}',
+        	    'created_at' => $faker->dateTime(),
+        	    'updated_at' => $faker->dateTime()
+        	],
+        	[
+        		'question' => 'Indique el nombre del ejecutivo que le atendió',
+        		'format' => '{
+        			"type" : "text"
+        		}',
         	    'created_at' => $faker->dateTime(),
         	    'updated_at' => $faker->dateTime()
         	],
