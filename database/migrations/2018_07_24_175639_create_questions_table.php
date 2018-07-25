@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignkeyToUsers extends Migration
+class CreateQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddForeignkeyToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreign('id_store')->references('id')->on('stores');
+        Schema::create('questions', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('question');
+            $table->timestamps();
         });
     }
 
@@ -25,9 +27,6 @@ class AddForeignkeyToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            
-            //$table->foreign('id_store')->references('id')->on('stores');
-        });
+        Schema::dropIfExists('questions');
     }
 }

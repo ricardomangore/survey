@@ -27,7 +27,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function store(){
-        return $this->belongsTo('App\Store','id_user');
+    public function store(){  
+        return $this->hasOne('App\Store', 'id_user');
     }
 }
