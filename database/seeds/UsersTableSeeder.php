@@ -17,3 +17,6 @@ class UsersTableSeeder extends Seeder
         });
     }
 }
+
+
+
