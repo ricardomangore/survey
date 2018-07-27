@@ -7,10 +7,11 @@ use App\Question as Question;
 use App\Questionnarie as Questionnarie;
 use App\Survey as Survey;
 use App\Store as Store;
+use App\User as User;
 
 class TestController extends Controller
 {
     public function index(){
-    	dd(Store::find(4));
+    	echo Question::all();//->user;
     }
 }

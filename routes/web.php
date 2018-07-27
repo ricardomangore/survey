@@ -11,6 +11,7 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,3 +21,15 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/test', 'TestController@index');
+*/
+/*
+ * Rutas protegidas por el middleware Auth
+ */
+Auth::routes();
+Route::view('/','survey.home')->name('home');
+
+Route::get('/survey', 'SurveyController@index')->name('survey');
+Route::get('/statistics', 'StatisticsController@index')->name('statistics');
+Route::get('/dashboard', 'DashBoardController@index')->name('dashboard');
+
+

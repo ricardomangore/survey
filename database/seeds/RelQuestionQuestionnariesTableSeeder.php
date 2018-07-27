@@ -17,42 +17,49 @@ class RelQuestionQuestionnariesTableSeeder extends Seeder
         	[
         		'id_question' => 1,
         		'id_questionnarie' =>1,
+        		'order' => 1,
         		'created_at' => $faker->dateTime(),
         		'updated_at' => $faker->dateTime()
         	],
         	[
         		'id_question' => 2,
         		'id_questionnarie' =>1,
+        		'order' => 2,
         		'created_at' => $faker->dateTime(),
         		'updated_at' => $faker->dateTime()
         	],
         	[
         		'id_question' => 3,
         		'id_questionnarie' =>1,
+        		'order' => 3,
         		'created_at' => $faker->dateTime(),
         		'updated_at' => $faker->dateTime()
         	],
         	[
         		'id_question' => 4,
         		'id_questionnarie' =>1,
+        		'order' => 4,
         		'created_at' => $faker->dateTime(),
         		'updated_at' => $faker->dateTime()
         	],
         	[
         		'id_question' => 5,
         		'id_questionnarie' =>1,
+        		'order' => 5,
         		'created_at' => $faker->dateTime(),
         		'updated_at' => $faker->dateTime()
         	],
         	[
         		'id_question' => 6,
         		'id_questionnarie' =>1,
+        		'order' => 6,
         		'created_at' =>$faker->dateTime(),
         		'updated_at' => $faker->dateTime()
         	],
         	[
         		'id_question' => 7,
         		'id_questionnarie' =>1,
+        		'order' => 7,
         		'created_at' => $faker->dateTime() ,
         		'updated_at' => $faker->dateTime() 
         	]

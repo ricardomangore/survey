@@ -17,6 +17,7 @@ class CreateRelQuestionQuestionnariesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_question');
             $table->unsignedBigInteger('id_questionnarie');
+            $table->integer('order');
             $table->timestamps();
         });
     }
