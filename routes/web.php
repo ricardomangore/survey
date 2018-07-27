@@ -26,9 +26,13 @@ Route::get('/test', 'TestController@index');
  * Rutas protegidas por el middleware Auth
  */
 Auth::routes();
+
+Route::get('/test', 'TestController@index');
+
 Route::view('/','survey.home')->name('home');
 
 Route::get('/survey', 'SurveyController@index')->name('survey');
+Route::post('/survey', 'SurveyController@store')->name('surveystore');
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 Route::get('/dashboard', 'DashBoardController@index')->name('dashboard');
 

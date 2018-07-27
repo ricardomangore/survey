@@ -4,19 +4,20 @@
 <div class="container">
     <div class="row">
         <div class="jumbotron">
-            <form>
+            <form method="POST" action="{{ route('surveystore') }}">
                 @csrf
+                <input type="hidden" value="{{ $questionnarie_id }}" name="questionnarie"/>
                 @foreach($questions as $question)
                    @if($question['type'] == 'text')
                         <div class="form-group">    
                             <label>{{ $question['question'] }}</label>
-                            <input class="form-control " type="text" name="{{ $question['name'] }}"/>
+                            <input class="form-control " type="text" name="{{ $question['id'] }}"/>
                         </div><!-- .form-group -->
                    @endif
                    @if($question['type'] == 'select')
                         <div class="form-group">
                             <label>{{ $question['question'] }}</label>
-                            <select class="form-control" name="{{ $question['name'] }}">
+                            <select class="form-control" name="{{ $question['id'] }}">
                                 @foreach($question['options'] as $option)
                                     <option value="{{ key($option) }}">
                                         {{ $option[key($option)] }}
@@ -30,7 +31,7 @@
                             <label>{{ $question['question'] }}</label><br/>
                             @foreach($question['options'] as $option)
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="{{ $question['name']}}" value="{{ key($option) }}"/>
+                                    <input class="form-check-input" type="radio" name="{{ $question['id']}}" value="{{ key($option) }}"/>
                                     <label>{{ $option[key($option)] }}</label>
                                 </div><!-- .form-check .form-check-inline -->
                             @endforeach
@@ -39,7 +40,7 @@
                    @if($question['type'] == 'longtext')
                         <div class="form-group">
                             <label>{{ $question['question']}}</label>
-                            <textarea class="form-control" rows="5" colums="10">
+                            <textarea class="form-control" rows="5" colums="10" name="{{ $question['id'] }}">
                             </textarea>
                         </div><!-- .form-group -->
                    @endif

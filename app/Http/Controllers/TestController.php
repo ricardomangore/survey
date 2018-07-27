@@ -8,10 +8,16 @@ use App\Questionnarie as Questionnarie;
 use App\Survey as Survey;
 use App\Store as Store;
 use App\User as User;
+use Illuminate\Support\Facades\Auth as Auth;
 
 class TestController extends Controller
 {
     public function index(){
-    	echo Question::all();//->user;
+    	/*foreach(Questionnarie::find(1)->question[0]->all() as $question){
+    		echo $question;
+    	}*/
+    	echo Auth::id();
+    	echo Auth::user();
+    	echo Auth::user()->store->name;
     }
 }
