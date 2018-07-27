@@ -16,25 +16,35 @@
                    @if($question['type'] == 'select')
                         <div class="form-group">
                             <label>{{ $question['question'] }}</label>
-                            <select class="form-control">
+                            <select class="form-control" name="{{ $question['name'] }}">
                                 @foreach($question['options'] as $option)
-                                    <option>{{ $option }}</option>
+                                    <option value="{{ key($option) }}">
+                                        {{ $option[key($option)] }}
+                                    </option>
                                 @endforeach
-                            </select>
-                        </div><!-- .form-group -->
+                            </select><!-- .form-control -->
+                        </div><!-- .form-group-->
                    @endif
                    @if($question['type'] == 'radio')
-                    <div class="form-group">
-                        <label>{{ $question['question'] }}</label>
-                        @foreach($question['question'] as $option)
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name=""/>
-                                <label>{{ $option }}</label>
-                            </div><!-- .form-check .form-check-inline -->
-                        @endforeach
-                    </div><!-- .form-group -->
+                        <div class="form-group">
+                            <label>{{ $question['question'] }}</label><br/>
+                            @foreach($question['options'] as $option)
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="{{ $question['name']}}" value="{{ key($option) }}"/>
+                                    <label>{{ $option[key($option)] }}</label>
+                                </div><!-- .form-check .form-check-inline -->
+                            @endforeach
+                        </div><!-- .form-group -->
+                   @endif
+                   @if($question['type'] == 'longtext')
+                        <div class="form-group">
+                            <label>{{ $question['question']}}</label>
+                            <textarea class="form-control" rows="5" colums="10">
+                            </textarea>
+                        </div><!-- .form-group -->
                    @endif
                 @endforeach
+                <button class="btn btn-primary">Enviar</button>
             </form>
         </div><!-- .jumbotron -->
     </div><!-- .row -->
