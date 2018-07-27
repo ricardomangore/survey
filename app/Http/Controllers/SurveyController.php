@@ -13,18 +13,20 @@ class SurveyController extends Controller
 
     public function index(){
     	$questions = Question::all();
-    	//echo $question->questionnarie[0]->pivot;
     	$questionArray = array();
     	foreach($questions as $question){
           	$questionnarie = $question->questionnarie;
     		$order = $questionnarie[0]->pivot->order;
     		$id = $question->id;
+    		$json = json_decode($question->format);
+    		$type = $json->type;
     		$questionArray[$order-1] = [
     			'name' => 'question_' . $id,
-    			'question' => $question->question 
+    			'question' => $question->question,
+    			'type' => $type,
+    			'options' => ($type=='select')? $json->options:"" 
      		];
     	}
-    	print_r($questionArray);
-    	
+    	return view('survey.survey', ['questions' => $questionArray] );	
     }
 }

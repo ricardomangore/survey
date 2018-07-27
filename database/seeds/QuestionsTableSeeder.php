@@ -24,6 +24,14 @@ class QuestionsTableSeeder extends Seeder
         	    'updated_at' => $faker->dateTime()
         	],
         	[
+        		'question' => 'Indique el nombre del ejecutivo que le atendió',
+        		'format' => trim('{
+        			"type" : "text"
+        		}', "\t\n"),
+        	    'created_at' => $faker->dateTime(),
+        	    'updated_at' => $faker->dateTime()
+        	],
+        	[
         		'question' => 'Que tipo de tramite realizo',
         		'format' => trim('{
         			"type" : "select",
@@ -63,14 +71,6 @@ class QuestionsTableSeeder extends Seeder
         		'question' => 'Podria ayudarnos con sus comentarios para entender mejor su experiencia de atención / compra',
         		'format' => trim('{
         			"type" : "longtext"
-        		}', "\t\n"),
-        	    'created_at' => $faker->dateTime(),
-        	    'updated_at' => $faker->dateTime()
-        	],
-        	[
-        		'question' => 'Indique el nombre del ejecutivo que le atendió',
-        		'format' => trim('{
-        			"type" : "text"
         		}', "\t\n"),
         	    'created_at' => $faker->dateTime(),
         	    'updated_at' => $faker->dateTime()
