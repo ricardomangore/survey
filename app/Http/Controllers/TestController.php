@@ -16,8 +16,16 @@ class TestController extends Controller
     	/*foreach(Questionnarie::find(1)->question[0]->all() as $question){
     		echo $question;
     	}*/
-    	echo Auth::id();
+    	/*echo Auth::id();
     	echo Auth::user();
-    	echo Auth::user()->store->name;
+    	echo Auth::user()->store->name;*/
+    	
+        $questionnarie = Questionnarie::find(1);
+        $questions = $questionnarie->question[0]->all();
+        $questionArray = array();
+        foreach($questions as $question){
+            $questionArray[$question->id] = 'required';
+        }
+        print_r($questionArray);
     }
 }

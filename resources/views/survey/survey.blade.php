@@ -12,25 +12,32 @@
                         <div class="form-group">    
                             <label>{{ $question['order'] }}.- {{ $question['question'] }}</label>
                             <input class="form-control 
-                                @if(true) 
+                                @if($errors->has($question['id'])) 
                                     {{ "is-invalid" }}
                                 @endif" type="text" 
                                     name="{{ $question['id'] }}"/>
-                            @if($errors->any())
-                                <div class="invalid-feedback">{{ "Error" }}</div>
+                            @if($errors->has($question['id']))
+                                <div class="invalid-feedback">{{ $errors->first($question['id']) }}</div>
                             @endif
                         </div><!-- .form-group -->
                    @endif
                    @if($question['type'] == 'select')
                         <div class="form-group">
                             <label>{{ $question['order'] }}.- {{ $question['question'] }}</label>
-                            <select class="form-control" name="{{ $question['id'] }}">
+                            <select class="form-control 
+                                @if($errors->has($question['id'])) 
+                                    {{ "is-invalid" }}
+                                @endif" type="text" 
+                                    name="{{ $question['id'] }}"/" name="{{ $question['id'] }}">
                                 @foreach($question['options'] as $option)
                                     <option value="{{ key($option) }}">
                                         {{ $option[key($option)] }}
                                     </option>
                                 @endforeach
                             </select><!-- .form-control -->
+                            @if($errors->has($question['id']))
+                                <div class="invalid-feedback">{{ $errors->first($question['id']) }}</div>
+                            @endif
                         </div><!-- .form-group-->
                    @endif
                    @if($question['type'] == 'radio')
@@ -42,13 +49,22 @@
                                     <label>{{ $option[key($option)] }}</label>
                                 </div><!-- .form-check .form-check-inline -->
                             @endforeach
+                            @if($errors->has($question['id']))
+                                <div class="invalid-feedback">{{ $errors->first($question['id']) }}</div>
+                            @endif
                         </div><!-- .form-group -->
                    @endif
                    @if($question['type'] == 'longtext')
                         <div class="form-group">
                             <label>{{ $question['order'] }}.- {{ $question['question']}}</label>
                             <textarea class="form-control" rows="5" colums="10" name="{{ $question['id'] }}">
+                                {{$errors->has('3')}}
                             </textarea>
+                            @if($errors->has('2'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first($question['id']) }}
+                                </div>
+                            @endif
                         </div><!-- .form-group -->
                    @endif
                 @endforeach

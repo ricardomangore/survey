@@ -9,7 +9,7 @@ use App\Answer as Answer;
 use Illuminate\Support\Facades\Auth as Auth;
 use Illuminate\Support\Facades\DB as DB;
 use App\Survey as Survey;
-use App\Http\Requests\Survey as SurveyRequests;
+use App\Http\Requests\Survey as SurveyRequest;
 
 class SurveyController extends Controller
 {
@@ -33,14 +33,24 @@ class SurveyController extends Controller
     	//print_r($questionArray);
     	return view('survey.survey', [
     		'questions' => $questionArray,
-    		'questionnarie_id' => $questionnarie[0]->id,
-    	]);
+    		'questionnarie_id' => $questionnarie[0]->id
+    	]);	
     }
 
-    public function store(SurveyRequests $request){
-        $request->setQuestionnarieId(1);
-        $validated = $request->validated();
-    	$index = $request->input('questionnarie');
+    public function store(Request $request){
+        /*$request->validate([    
+            '1' => 'required',
+            '2' => 'required',
+            '3' => 'required',
+            '4' => 'required',
+            '5' => 'required',
+            '6' => 'required',
+            '7' => 'required',
+        ]);*/
+        print_r($request->all());
+        //$request->questionnarieId = 1;
+        //$validated = $request->validated();
+    	/*$index = $request->input('questionnarie');
     	DB::transaction(function () use($request){
     		$survey = new Survey();
     		$survey->name = "Satisfaction Survey";
@@ -59,7 +69,7 @@ class SurveyController extends Controller
                 echo $answer;
     		}
     	
-    	});
+    	});*/
     }
  
 }
