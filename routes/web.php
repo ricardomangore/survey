@@ -31,7 +31,7 @@ Route::get('/test', 'TestController@index');
 
 Route::view('/','survey.home')->name('home');
 
-Route::get('/survey', 'SurveyController@index')->name('survey');
+Route::get('/survey', 'SurveyController@create')->name('survey');
 Route::post('/survey', 'SurveyController@store')->name('surveystore');
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 Route::get('/dashboard', 'DashBoardController@index')->name('dashboard');

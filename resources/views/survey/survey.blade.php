@@ -10,13 +10,20 @@
                 @foreach($questions as $question)
                    @if($question['type'] == 'text')
                         <div class="form-group">    
-                            <label>{{ $question['question'] }}</label>
-                            <input class="form-control " type="text" name="{{ $question['id'] }}"/>
+                            <label>{{ $question['order'] }}.- {{ $question['question'] }}</label>
+                            <input class="form-control 
+                                @if(true) 
+                                    {{ "is-invalid" }}
+                                @endif" type="text" 
+                                    name="{{ $question['id'] }}"/>
+                            @if($errors->any())
+                                <div class="invalid-feedback">{{ "Error" }}</div>
+                            @endif
                         </div><!-- .form-group -->
                    @endif
                    @if($question['type'] == 'select')
                         <div class="form-group">
-                            <label>{{ $question['question'] }}</label>
+                            <label>{{ $question['order'] }}.- {{ $question['question'] }}</label>
                             <select class="form-control" name="{{ $question['id'] }}">
                                 @foreach($question['options'] as $option)
                                     <option value="{{ key($option) }}">
@@ -28,7 +35,7 @@
                    @endif
                    @if($question['type'] == 'radio')
                         <div class="form-group">
-                            <label>{{ $question['question'] }}</label><br/>
+                            <label>{{ $question['order'] }}.- {{ $question['question'] }}</label><br/>
                             @foreach($question['options'] as $option)
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="{{ $question['id']}}" value="{{ key($option) }}"/>
@@ -39,7 +46,7 @@
                    @endif
                    @if($question['type'] == 'longtext')
                         <div class="form-group">
-                            <label>{{ $question['question']}}</label>
+                            <label>{{ $question['order'] }}.- {{ $question['question']}}</label>
                             <textarea class="form-control" rows="5" colums="10" name="{{ $question['id'] }}">
                             </textarea>
                         </div><!-- .form-group -->

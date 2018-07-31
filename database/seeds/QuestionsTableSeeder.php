@@ -54,11 +54,11 @@ class QuestionsTableSeeder extends Seeder
         			"type" : "radio",
         			"name" : "service_satisfaction",
         			"options" : [
-        				{"1" : "Para nada"},
-        				{"2" : "En desacuerdo"},
-        				{"3" : "Neutro"},
-        				{"4" : "De acuerdo"},
-        				{"5" : "Totalmente"}
+        				{"nothing" : "Para nada"},
+        				{"disagreement" : "En desacuerdo"},
+        				{"neutral" : "Neutro"},
+        				{"agree" : "De acuerdo"},
+        				{"totally_agree" : "Totalmente"}
         			]
         		}',"\t\n"),
         	    'created_at' => $faker->dateTime(),
@@ -86,11 +86,11 @@ class QuestionsTableSeeder extends Seeder
         			"type" : "radio",
         			"name" : "recomendation",
         			"options" : [
-        				{"1" : "Para nada"},
-        				{"2" : "En desacuerdo"},
-        				{"3" : "Neutro"},
-        				{"4" : "De acuerdo"},
-        				{"5" : "Totalmente"}
+        				{"nothing" : "Para nada"},
+        				{"disagreement" : "En desacuerdo"},
+        				{"neutral" : "Neutro"},
+        				{"agree" : "De acuerdo"},
+        				{"totally_agree" : "Totalmente"}
         			]
         		}', "\t\n"),
         	    'created_at' => $faker->dateTime(),
